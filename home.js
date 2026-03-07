@@ -79,7 +79,7 @@ const displayissues = (issues) => {
         <div class="card bg-base-100 w-full h-[350px] md:h-[300px] shadow-sm" onclick="issueModal(${issue})">
                 <!-- status and badge -->
                 <div class="flex justify-between px-7 mt-6">
-                    <img src="${statusImg}" alt="">
+                    <img src="${statusImg}"  alt="">
                     <div class="badge ${priority} font-semibold badge-soft py-1 px-6">${issue.priority.toUpperCase()}</div>
                 </div>
                 <div class="card-body">
