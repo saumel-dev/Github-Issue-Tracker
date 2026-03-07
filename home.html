@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Issue Tracker</title>
+    <!-- daisy ui & tailwind -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: "Geist", sans-serif;
+        }
+
+        /* body{
+            background-color: aqua;
+        } */
+    </style>
+</head>
+
+<body class="bg-base-200">
+    <header>
+        <nav class="bg-white">
+            <div class="navbar bg-base-100 shadow-sm px-15">
+                <div class="flex-1">
+                    <div class="flex items-center gap-2">
+                        <img class="w-[40px]" src="assets/github-logo.png" alt="">
+                        <a class="font-semibold text-xl">GitHub Issues Tracker</a>
+                    </div>
+                </div>
+                <div class="flex gap-2">
+                    <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+                    <div>
+                        <button class="btn btn-primary"><i class="fa-solid fa-plus"></i>New Issue</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- tab section -->
+    <section class="tab-section pt-[60px] w-[70%] mx-auto">
+        <div class="flex gap-4 bg-white py-6 px-5 shadow-sm rounded-md">
+            <div class="all-tab">
+                <button class="btn btn-primary px-10">All</button>
+            </div>
+            <div class="open-tab">
+                <button class="btn btn-primary px-10">Open</button>
+            </div>
+            <div class="closed-tab">
+                <button class="btn btn-primary px-10">Closed</button>
+            </div>
+        </div>
+    </section>
+    <!-- issue count section -->
+    <section class="w-[70%] mx-auto bg-white mt-4 p-4 flex justify-between shadow-sm">
+        <!-- left section -->
+        <div class="flex gap-2 items-center">
+            <div class=" bg-[#4A00FF]/20 p-2 rounded-full">
+                <img class="w-7 h-7" src="assets/Aperture.png" alt="">
+            </div>
+            <div>
+                <h1 class="text-xl font-semibold">50 Issues</h1>
+                <p class="text-[#64748B]">Track and manage your project issues</p>
+            </div>
+        </div>
+        <!-- right section -->
+        <div class="flex gap-5 items-center">
+            <div>
+                <p><i class="fa-solid fa-circle text-green-500"></i> Open</p>
+            </div>
+            <div>
+                <p><i class="fa-solid fa-circle text-purple-500"></i> Closed</p>
+            </div>
+        </div>
+    </section>
+    <!-- issue card section -->
+    <section class="card-section w-[70%] mx-auto">
+        <div class="issue-container bg-base-200 p-6 shadow-md">
+            <div class="card bg-base-100 w-96 shadow-sm">
+                <!-- status and badge -->
+                <div class="flex justify-between px-7 mt-6">
+                    <img src="assets/Open-Status.png" alt="">
+                    <div class="badge badge-error badge-soft py-1 px-6">High</div>
+                </div>
+                <div class="card-body">
+                    <h2 class="card-title">
+                        Fix navigation menu on mobile devices
+                    </h2>
+                    <p class="line-clamp-2">The navigation menu doesn't collapse properly on mobile devices</p>
+                    <div class="card-actions justify-start">
+                        <div class="badge badge-error badge-soft"><img src="assets/BugDroid.png" alt="">Bug</div>
+                        <div class="badge badge-warning badge-soft"><img src="assets/Lifebuoy.png" alt="">HELP WANTED</div>
+                    </div>
+                </div>
+                <hr>
+                <!-- name and date section -->
+                <div>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
