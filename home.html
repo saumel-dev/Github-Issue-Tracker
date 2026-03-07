@@ -47,28 +47,28 @@
         </nav>
     </header>
     <!-- tab section -->
-    <section class="tab-section pt-[60px] w-[70%] mx-auto">
+    <section id="tab-container" class="pt-[60px] w-[80%] mx-auto">
         <div class="flex gap-4 bg-white py-6 px-5 shadow-sm rounded-md">
-            <div class="all-tab">
-                <button class="btn btn-primary px-10">All</button>
+            <div id="all" class="all-tab">
+                <button onclick="btnTab(this, 'all')" class="btn btn-primary px-10">All</button>
             </div>
-            <div class="open-tab">
-                <button class="btn btn-primary px-10">Open</button>
+            <div id="open" class="open-tab">
+                <button onclick="btnTab(this, 'open')" class="btn px-10">Open</button>
             </div>
-            <div class="closed-tab">
-                <button class="btn btn-primary px-10">Closed</button>
+            <div id="closed" class="closed-tab">
+                <button onclick="btnTab(this, 'closed')" class="btn px-10">Closed</button>
             </div>
         </div>
     </section>
     <!-- issue count section -->
-    <section class="w-[70%] mx-auto bg-white mt-4 p-4 flex justify-between shadow-sm">
+    <section class="w-[80%] mx-auto bg-white mt-4 p-4 flex justify-between shadow-sm">
         <!-- left section -->
         <div class="flex gap-2 items-center">
             <div class=" bg-[#4A00FF]/20 p-2 rounded-full">
                 <img class="w-7 h-7" src="assets/Aperture.png" alt="">
             </div>
             <div>
-                <h1 class="text-xl font-semibold">50 Issues</h1>
+                <h1 id="numberOfissues" class="text-xl font-semibold">0 Issues</h1>
                 <p class="text-[#64748B]">Track and manage your project issues</p>
             </div>
         </div>
@@ -83,32 +83,12 @@
         </div>
     </section>
     <!-- issue card section -->
-    <section class="card-section w-[70%] mx-auto">
-        <div class="issue-container bg-base-200 p-6 shadow-md">
-            <div class="card bg-base-100 w-96 shadow-sm">
-                <!-- status and badge -->
-                <div class="flex justify-between px-7 mt-6">
-                    <img src="assets/Open-Status.png" alt="">
-                    <div class="badge badge-error badge-soft py-1 px-6">High</div>
-                </div>
-                <div class="card-body">
-                    <h2 class="card-title">
-                        Fix navigation menu on mobile devices
-                    </h2>
-                    <p class="line-clamp-2">The navigation menu doesn't collapse properly on mobile devices</p>
-                    <div class="card-actions justify-start">
-                        <div class="badge badge-error badge-soft"><img src="assets/BugDroid.png" alt="">Bug</div>
-                        <div class="badge badge-warning badge-soft"><img src="assets/Lifebuoy.png" alt="">HELP WANTED</div>
-                    </div>
-                </div>
-                <hr>
-                <!-- name and date section -->
-                <div>
-                    <p></p>
-                </div>
-            </div>
+    <section class="card-section w-[80%] mx-auto">
+        <div id="issue-container" class="bg-base-200 p-6 shadow-md grid grid-cols-2 md:grid-cols-4 gap-5">
+             
         </div>
     </section>
+    <script src="home.js"></script>
 </body>
 
 </html>
