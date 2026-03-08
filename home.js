@@ -32,61 +32,56 @@ const issueModal = async (id) => {
     const temp = await res.json();
     const issue = temp.data;
     // console.log(issue.data);
-    const statusBg = issue.status === 'open'? 'bg-green-300' : 'bg-purple-300';
+    const statusBg = issue.status === 'open' ? 'bg-green-300' : 'bg-purple-300';
     const priority = issue.priority === 'high' ? 'bg-red-500' :
-            issue.priority === 'medium' ? 'bg-yellow-500' :
-                'bg-gray-400';
+        issue.priority === 'medium' ? 'bg-yellow-500' :
+            'bg-gray-400';
     issueModalCard.innerHTML = `
    <div class="modal-box px-8 py-8">
             <h3 class="text-2xl font-bold">${issue.title}</h3>
             <div class="flex gap-2 items-center mt-3">
                 <div class="badge ${statusBg}">${issue.status.toUpperCase()}</div>
                 <div class="h-1 w-1 bg-gray-500 rounded-full"></div>
-                <div class="text-[12px] text-[#64748B]">Opened by ${issue.assignee === ""? 'User Not Found': issue.assignee}</div>
+                <div class="text-[12px] text-[#64748B]">Opened by ${issue.assignee === "" ? 'User Not Found' : issue.assignee}</div>
                 <div class="h-1 w-1 bg-gray-500 rounded-full"></div>
                 <div class="text-[12px] text-[#64748B]">${new Date(issue.updatedAt).toLocaleDateString("en-US")}</div>
             </div>
             <div class="card-actions justify-start mt-5">
-                ${issue.labels.map( (label) => {
-                            let badgeStyle = "";
-                            let img = "";
-                            if(label === "bug")
-                            {
-                                badgeStyle = "badge-error";
-                                img =  '<img src="assets/BugDroid.png" alt="">';
-                            }
-                            else if(label === "help wanted")
-                            {
-                                badgeStyle = "badge-warning";
-                                img =  '<img src="assets/Lifebuoy.png" alt="">';
-                            }
-                            else if(label === "enhancement")
-                            {
-                                badgeStyle = "badge-success";
-                                img =  '<img src="assets/Sparkle.png" alt="">';
-                            }
-                            else if(label === "good first issue")
-                            {
-                                badgeStyle = "badge-accent";
-                                img =  '<img src="assets/good.png" alt="">';
-                            }
-                            else if(label === "documentation")
-                            {
-                                badgeStyle = "badge-neutral";
-                                img =  '<img src="assets/documentation.png" alt="">';
-                            }
-                            
-                            return `
+                ${issue.labels.map((label) => {
+        let badgeStyle = "";
+        let img = "";
+        if (label === "bug") {
+            badgeStyle = "badge-error";
+            img = '<img src="assets/BugDroid.png" alt="">';
+        }
+        else if (label === "help wanted") {
+            badgeStyle = "badge-warning";
+            img = '<img src="assets/Lifebuoy.png" alt="">';
+        }
+        else if (label === "enhancement") {
+            badgeStyle = "badge-success";
+            img = '<img src="assets/Sparkle.png" alt="">';
+        }
+        else if (label === "good first issue") {
+            badgeStyle = "badge-accent";
+            img = '<img src="assets/good.png" alt="">';
+        }
+        else if (label === "documentation") {
+            badgeStyle = "badge-neutral";
+            img = '<img src="assets/documentation.png" alt="">';
+        }
+
+        return `
                             <div class="badge ${badgeStyle} badge-soft font-semibold">${img} ${label.toUpperCase()}</div>
                             `
-                        }).join(" ")}
+    }).join(" ")}
             </div>
 
             <p class="line-clamp-2 py-5 text-[#64748B]">${issue.description}</p>
             <div class="flex bg-base-200 p-4 gap-40 rounded-md">
                 <div>
                     <p>Assignee:</p>
-                    <p>${issue.assignee === ""? 'User Not Found': issue.assignee}</p>
+                    <p>${issue.assignee === "" ? 'User Not Found' : issue.assignee}</p>
                 </div>
                 <div>
                     <p>Priority:</p>
@@ -133,39 +128,34 @@ const displayissues = (issues) => {
                     </h2>
                     <p class="line-clamp-2">${issue.description}</p>
                     <div class="card-actions justify-start">
-                        ${issue.labels.map( (label) => {
-                            let badgeStyle = "";
-                            let img = "";
-                            if(label === "bug")
-                            {
-                                badgeStyle = "badge-error";
-                                img =  '<img src="assets/BugDroid.png" alt="">';
-                            }
-                            else if(label === "help wanted")
-                            {
-                                badgeStyle = "badge-warning";
-                                img =  '<img src="assets/Lifebuoy.png" alt="">';
-                            }
-                            else if(label === "enhancement")
-                            {
-                                badgeStyle = "badge-success";
-                                img =  '<img src="assets/Sparkle.png" alt="">';
-                            }
-                            else if(label === "good first issue")
-                            {
-                                badgeStyle = "badge-accent";
-                                img =  '<img src="assets/good.png" alt="">';
-                            }
-                            else if(label === "documentation")
-                            {
-                                badgeStyle = "badge-neutral";
-                                img =  '<img src="assets/documentation.png" alt="">';
-                            }
-                            
-                            return `
+                        ${issue.labels.map((label) => {
+            let badgeStyle = "";
+            let img = "";
+            if (label === "bug") {
+                badgeStyle = "badge-error";
+                img = '<img src="assets/BugDroid.png" alt="">';
+            }
+            else if (label === "help wanted") {
+                badgeStyle = "badge-warning";
+                img = '<img src="assets/Lifebuoy.png" alt="">';
+            }
+            else if (label === "enhancement") {
+                badgeStyle = "badge-success";
+                img = '<img src="assets/Sparkle.png" alt="">';
+            }
+            else if (label === "good first issue") {
+                badgeStyle = "badge-accent";
+                img = '<img src="assets/good.png" alt="">';
+            }
+            else if (label === "documentation") {
+                badgeStyle = "badge-neutral";
+                img = '<img src="assets/documentation.png" alt="">';
+            }
+
+            return `
                             <div class="badge ${badgeStyle} badge-soft font-semibold">${img} ${label.toUpperCase()}</div>
                             `
-                        }).join(" ")}
+        }).join(" ")}
                     </div>
                 </div>
                 <hr class="text-gray-300">
