@@ -23,7 +23,6 @@ const loadAllissues = async () => {
     alldata = data.data;
     // console.log(data, alldata);
     displayissues(alldata);
-    hideLoading();
 }
 loadAllissues();
 const issueModalCard = document.getElementById('issueModal');
@@ -169,6 +168,18 @@ const displayissues = (issues) => {
         displayContainer.append(newDiv);
         numberOfissues++;
     });
+    hideLoading();
     const numberOfissuesContainer = document.getElementById('numberOfissues');
     numberOfissuesContainer.innerHTML = `${numberOfissues} issues`;
 }
+
+document.getElementById('btn-search').addEventListener('click', async () => {
+    const inputValue = document.getElementById('input-search').value;
+    showLoading();
+    const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${inputValue.toLowerCase()}`)
+    
+    const data = await res.json();
+     alldata = data.data;
+     hideLoading();
+     displayissues(alldata);
+})
