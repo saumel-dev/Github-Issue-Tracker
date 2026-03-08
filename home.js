@@ -115,7 +115,7 @@ const displayissues = (issues) => {
     })
 
     filteredIssues.forEach(issue => {
-        const statusImg = issue.status === 'open' ? 'assets/Open-Status.png' : 'assets/Closed-status.png';
+        const statusImg = issue.status === 'open' ? 'assets/Open-Status.png' : 'assets/Closed-Status.png';
         const priority = issue.priority === 'high' ? 'badge-error' :
             issue.priority === 'medium' ? 'badge-warning' :
                 'badge-ghost text-[#9CA3AF]';
