@@ -1,5 +1,12 @@
 let tab = "all";
 let alldata = [];
+const loading = document.getElementById('spinner-container');
+function showLoading() {
+    loading.classList.remove('hidden');
+}
+function hideLoading() {
+    loading.classList.add('hidden');
+}
 const btnTab = (btn, btnName) => {
     const buttons = document.querySelectorAll('#tab-container button')
     buttons.forEach(e => {
@@ -10,11 +17,13 @@ const btnTab = (btn, btnName) => {
     displayissues(alldata);
 }
 const loadAllissues = async () => {
+    showLoading();
     const res = await fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues');
     const data = await res.json();
     alldata = data.data;
     // console.log(data, alldata);
     displayissues(alldata);
+    hideLoading();
 }
 loadAllissues();
 const issueModalCard = document.getElementById('issueModal');
