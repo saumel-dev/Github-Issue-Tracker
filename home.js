@@ -113,9 +113,10 @@ const displayissues = (issues) => {
         const priority = issue.priority === 'high' ? 'badge-error' :
             issue.priority === 'medium' ? 'badge-warning' :
                 'badge-ghost text-[#9CA3AF]';
+        const topBorder = issue.status === 'open' ? 'border-t-green-500' : 'border-t-purple-500';
         const newDiv = document.createElement('div');
         newDiv.innerHTML = `
-        <div class="card bg-base-100 w-full h-[350px] md:h-[300px] shadow-sm" onclick="issueModal(${issue.id})">
+        <div class="card bg-base-100 w-full h-[350px] md:h-[300px] shadow-sm border-t-3 ${topBorder}" onclick="issueModal(${issue.id})">
                 <!-- status and badge -->
                 <div class="flex justify-between px-7 mt-6">
                     <img src="${statusImg}"  alt="">
