@@ -23,14 +23,14 @@ const issueModal = async (id) => {
     const temp = await res.json();
     const issue = temp.data;
     // console.log(issue.data);
-    
+
     issueModalCard.innerHTML = `
    <div class="modal-box px-8 py-8">
             <h3 class="text-2xl font-bold">${issue.title}</h3>
             <div class="flex gap-2 items-center mt-3">
                 <div class="badge badge-success">${issue.status}</div>
                 <div class="h-1 w-1 bg-gray-500 rounded-full"></div>
-                <div class="text-[12px] text-[#64748B]">Opened by </div>
+                <div class="text-[12px] text-[#64748B]">Opened by ${issue.assignee.toUpperCase()}</div>
                 <div class="h-1 w-1 bg-gray-500 rounded-full"></div>
                 <div class="text-[12px] text-[#64748B]">${issue.updatedAt}</div>
             </div>
@@ -92,9 +92,11 @@ const displayissues = (issues) => {
                     </h2>
                     <p class="line-clamp-2">${issue.description}</p>
                     <div class="card-actions justify-start">
-                        <div class="badge badge-error badge-soft font-semibold"><img src="assets/BugDroid.png" alt="">${issue.labels[0]}</div>
-                        <div class="badge bg-yellow-100 font-semibold badge-warning badge-soft"><img src="assets/Lifebuoy.png" alt="">${issue.labels[1]}
-                        </div>
+                        ${issue.labels.map( (label, indx) => {
+                            return `
+                            <div class="badge badge-error badge-soft font-semibold"><img src="assets/BugDroid.png" alt="">${label.toUpperCase()}</div>
+                            `
+                        }).join(" ")}
                     </div>
                 </div>
                 <hr class="text-gray-300">
