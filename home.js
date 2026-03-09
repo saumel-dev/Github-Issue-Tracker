@@ -1,10 +1,12 @@
 let tab = "all";
 let alldata = [];
-const loading = document.getElementById('spinner-container');
+
 function showLoading() {
+    const loading = document.getElementById('spinner-container');
     loading.classList.remove('hidden');
 }
 function hideLoading() {
+    const loading = document.getElementById('spinner-container');
     loading.classList.add('hidden');
 }
 const btnTab = (btn, btnName) => {
@@ -176,11 +178,13 @@ const displayissues = (issues) => {
 
 document.getElementById('btn-search').addEventListener('click', async () => {
     const inputValue = document.getElementById('input-search').value;
+    const displayContainer = document.getElementById('issue-container');
+    displayContainer.innerHTML = " ";
     showLoading();
     const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${inputValue.toLowerCase()}`)
-    
+
     const data = await res.json();
-     alldata = data.data;
-     hideLoading();
-     displayissues(alldata);
+    alldata = data.data;
+    hideLoading();
+    displayissues(alldata);
 })
